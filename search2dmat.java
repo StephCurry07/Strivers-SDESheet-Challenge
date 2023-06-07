@@ -18,7 +18,7 @@ public class search2dmat {
     }
     static boolean searchMatrix(ArrayList<ArrayList<Integer>> mat, int target) {
         // Write your code here.
-        boolean ans = false;
+        boolean ans;
         for(ArrayList<Integer> row : mat){
             if(row.get(row.size() - 1) > target){
                 continue;
