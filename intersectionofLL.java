@@ -41,8 +41,25 @@ public class intersectionofLL {
         return find.data;
     }
     
+    /********************** O(n^2) **************************/
 
-    /*************** Second Method(Looks like this is what was expected) *******************/
+    public int getIntersectionNode(Node firstHead, Node secondHead) {
+        Node start = firstHead.next;
+        while (start != null) {
+            Node find = secondHead;
+            while (find != null) {
+                if (find == start) {
+                    return find.data; 
+                }
+                find = find.next;
+            }
+            start = start.next;
+        }
+        return -1;  // No intersection found
+    }
+    
+
+    /*************** Another Method(Looks like this is what was expected) *******************/
     private static int getLength(Node node){
         int len = 0;
         while(node != null){
