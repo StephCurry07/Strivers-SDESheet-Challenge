@@ -1,5 +1,4 @@
-public class palindromeLL {
-    class LinkedListNode<T> {
+class LinkedListNode<T> {
         T data;
         LinkedListNode<T> next;
         public LinkedListNode(T data) {
@@ -7,6 +6,7 @@ public class palindromeLL {
         }
     }
 
+public class palindromeLL {
     /**********Don't know what's wrong with it....It just doesn't pass the test case...Even if the values are equal it executes the if statement for not equal. Tried it with my approach and original approach too. ***********/
     
     public static boolean isPalindrome(LinkedListNode<Integer> head) {
