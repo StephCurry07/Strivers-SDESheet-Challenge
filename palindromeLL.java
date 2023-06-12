@@ -7,6 +7,10 @@ class LinkedListNode<T> {
     }
 
 public class palindromeLL {
+
+    /***************** EDIT : FOUND THE MISTAKE: Really need to learn applying java....It was not the same object as it belonged to another node....so u need reference comparison!!!! */
+    /**** ALSO NO NEED TO CHECK NULL TWICE IN THE END IN THE CONDITION... As it is the middle of list you only need to see one node as null */
+
     /**********Don't know what's wrong with it....It just doesn't pass the test case...Even if the values are equal it executes the if statement for not equal. Tried it with my approach and original approach too. ***********/
     
     public static boolean isPalindrome(LinkedListNode<Integer> head) {
@@ -39,10 +43,10 @@ public class palindromeLL {
             cur = fast;
         }
         while (prev != null && head != null) {
-            if (head.data != prev.data) {
-                System.out.println(head.data + " " + prev.data);
+            if(!head.data.equals(prev.data))            ////    EDITTT
+            // if (head.data != prev.data) {
+                // System.out.println(head.data + " " + prev.data);
                 return false;
-            }
             head = head.next;
             prev = prev.next;
         }
@@ -76,8 +80,10 @@ public class palindromeLL {
 		// Step 3: Compare the reversed second half with the first half
 		LinkedListNode<Integer> curr1 = head;
 		LinkedListNode<Integer> curr2 = reversed;
-		while (curr1 != null && curr2 != null) {
-			if (curr1.data != curr2.data) {
+        while (curr2 != null) {
+			if (!curr1.data.equals(curr2.data)) {
+		// while (curr1 != null && curr2 != null) {
+			// if (curr1.data != curr2.data) {
 				return false; // The values don't match, not a palindrome
 			}
 			curr1 = curr1.next;
