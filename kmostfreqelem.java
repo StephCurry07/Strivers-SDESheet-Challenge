@@ -1,6 +1,9 @@
 import java.util.TreeMap;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
@@ -30,5 +33,32 @@ public class kmostfreqelem {
         }
         Arrays.sort(ans);
         return ans;
+    }
+/****************** Bucket Sort *********************/
+public static int[] KMostFrequent1(int n, int k, int[] arr) {
+ Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : arr) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        // Create a list of buckets to store elements based on their frequencies
+        List<Integer>[] buckets = new List[arr.length + 1];
+        for (int num : frequencyMap.keySet()) {
+            int frequency = frequencyMap.get(num);
+            if (buckets[frequency] == null) {
+                buckets[frequency] = new ArrayList<>();
+            }
+            buckets[frequency].add(num);
+        }
+
+        // Retrieve the k most frequent elements from the buckets
+        List<Integer> result = new ArrayList<>();
+        for (int i = buckets.length - 1; i >= 0 && result.size() < k; i--) {
+            if (buckets[i] != null) {
+                result.addAll(buckets[i]);
+            }
+        }
+
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 }
