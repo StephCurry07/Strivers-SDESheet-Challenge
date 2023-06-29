@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class pathInATree {
-/******** don;t try  to return void ...use boolean if simultaneous traversal... *********/
+/******** don;t try  to return void ...use boolean for better understanding and solution*********/
     public static boolean traverse(TreeNode root, ArrayList<Integer> al, int x){
         if(root == null){
             return false;
