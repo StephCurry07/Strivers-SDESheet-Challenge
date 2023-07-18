@@ -22,7 +22,6 @@ public class LRUCache {
         this.cap = capacity;
         head.next = tail;
         tail.prev = head;
-        // Write your code here
     }
 
     void addNode(Node node){
@@ -55,7 +54,6 @@ public class LRUCache {
     }
 
     public void put(int key, int value) {
-        // Write your code here
         if(map.containsKey(key)){
             deleteNode(map.get(key));
         }
