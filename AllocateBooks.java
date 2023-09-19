@@ -9,6 +9,7 @@ public class AllocateBooks {
         }
 
         long totalTime = 0;
+        
         for (int a : time) {
             totalTime += a;
         }
@@ -25,7 +26,6 @@ public class AllocateBooks {
                 start = mid + 1;
             }
         }
-
         return start;
     }
 
